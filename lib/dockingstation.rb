@@ -11,8 +11,13 @@ class DockingStation
  end
 
   def release_bike
-    raise "No bikes available" if empty?
-    @bikes.pop
+    if empty?
+      raise "No bikes available"
+    elsif @bikes.last.working? == false
+      raise "No working bikes available"
+    else
+      @bikes.pop
+    end
   end
 
   def dock(bike)
@@ -25,7 +30,7 @@ class DockingStation
  end
 
   private
-  
+
   attr_reader :bikes
 
   def full?
