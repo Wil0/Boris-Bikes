@@ -19,6 +19,7 @@ describe Van do
       end
       it "only picks up working bikes at the garage" do
         allow(bike).to receive(:report_broken).and_return(false)
+        allow(bike).to receive(:working?).and_return(false)
         bike.report_broken
         expect { subject.pickup(bike) }.to raise_error "Bike is broken"
       end
