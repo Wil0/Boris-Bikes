@@ -39,4 +39,9 @@ describe DockingStation do
       expect(subject.bikes).to eq [bike]
     end
   end
+  describe "New Docking Station" do
+    it 'starts with a default capacity' do
+      expect(subject.capacity).to eq subject.capacity
+    end
+  end
 end
