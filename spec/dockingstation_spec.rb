@@ -33,15 +33,21 @@ describe DockingStation do
       bike = Bike.new
       expect(subject.dock(bike)).to eq [bike]
     end
+    it "docks a broken bike" do
+      bike = Bike.new
+      bike.report_broken
+      expect(subject.dock(bike)).to eq [bike]
+    end
     it "does not allow you to dock a bike when the dock is full" do
       DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
       expect { subject.dock(Bike.new) }.to raise_error "The dock is full"
     end
-    it "does not allow you to dock a bike when the dock is full" do
+    it "does not allow you to dock a bike when the dock, with a custom capacity, is full" do
       station = DockingStation.new(50)
       subject.capacity.times {subject.dock(Bike.new)}
       expect { subject.dock(Bike.new) }.to raise_error "The dock is full"
     end
+
   end
 
   describe "#bike" do #when do you create this describe test
