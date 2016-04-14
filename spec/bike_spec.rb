@@ -1,6 +1,7 @@
-require 'Bike'
-describe Bike do
-  it {expect(subject).to respond_to :working?}
-  #it {is_expected...}
+require "bike"
 
+RSpec.describe Bike do
+  describe "working bike" do
+  	it {should respond_to(:working?)}
+  end
 end
