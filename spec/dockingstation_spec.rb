@@ -1,9 +1,9 @@
-require "docking_station"
+require "dockingstation"
 
 describe DockingStation do
   it { is_expected.to respond_to(:release_bike) }
   it { is_expected.to respond_to(:dock).with(1).argument }
-  it { is_expected.to respond_to(:bike) }
+  it { is_expected.to respond_to(:bikes) } #what step is this?
 
   describe "#release_bike" do
     it "releases a docked bike" do
@@ -24,19 +24,19 @@ describe DockingStation do
   describe "#dock" do
     it "docks the bike" do
       bike = Bike.new
-      expect(subject.dock(bike)).to eq bike
+      expect(subject.dock(bike)).to eq [bike]
     end
     it "does not allow you to dock a bike when the dock is full" do
-      subject.dock(Bike.new)
+      20.times {subject.dock(Bike.new)}
       expect { subject.dock(Bike.new) }.to raise_error "The dock is full"
     end
   end
 
-  describe "#bike" do
+  describe "#bike" do #when do you create this describe test
     it "returns docked bikes" do
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.bike).to eq bike
+      expect(subject.bikes).to eq [bike]
     end
   end
 end
