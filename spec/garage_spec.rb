@@ -18,4 +18,18 @@ describe Garage do
     allow(bike).to receive(:fix_bikes).and_return(true)
     expect(bike.fix_bikes).to eq true
   end
+
+  it 'releases fixed bikes' do
+		allow(bike).to receive(:release_fixed_bikes).and_return(true)
+	end
+
+  it "raises an error if empty" do
+  		expect{subject.release_fixed_bikes}.to raise_error("Garage empty")
+  end
+
+  it "raises an error if a broken bike is released" do
+    bike = double("bike", :working? => false)
+    subject.store_bikes(bike)
+    expect{subject.release_fixed_bikes}.to raise_error ("A broken bike can't be released")
+  end
 end

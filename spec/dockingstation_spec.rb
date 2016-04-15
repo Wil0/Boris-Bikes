@@ -49,8 +49,4 @@ describe DockingStation do
 		expect{subject.release_bike}.to raise_error("Can't release a broken bike")
 	end
 
-	it 'should load bikes in the van' do
-		bike = Bike.new
-		expect(subject.load_bikes_in_van(bike)).to eq([bike])
-	end
 end

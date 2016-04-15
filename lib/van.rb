@@ -1,5 +1,5 @@
-require 'bike'
-require 'garage'
+require_relative 'bike'
+require_relative 'garage'
 
 class  Van
 attr_reader :bike
@@ -26,7 +26,7 @@ DEFAULT_CAPACITY = 5
   end
 
   def unload_bikes_to_garage(bikes)
-    bikes.each{ |i| @garage_space << i}
+    @garage_space << bikes
   end
 
 

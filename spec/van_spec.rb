@@ -19,6 +19,8 @@ describe Van do
   end
 
   it 'should unload working bikes on the docking station' do
-
+    bike = double(:bike)
+    garage = double(:garage)
+    expect(subject.unload_bikes_to_garage(bike)).to eq bike
   end
 end

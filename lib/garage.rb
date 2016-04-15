@@ -20,10 +20,16 @@ class Garage
   end
 
   def release_fixed_bikes
-
-  end
+		raise "Garage empty" if empty?
+		raise "A broken bike can't be released" if @garage_space.last.working? == false
+		@garage_space.pop
+	end
 
   def full?
     @garage_space.length >= DEFAULT_CAPACITY
+  end
+
+  def empty?
+    @garage_space.length <= 0
   end
 end

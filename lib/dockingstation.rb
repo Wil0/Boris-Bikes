@@ -22,10 +22,6 @@ DEFAULT_CAPACITY = 20
 		@array_of_bikes << bike
 	end
 
-	def load_bikes_in_van(bikes)
-		@van_array << bikes
-	end
-
 	private
 
 	def full?
