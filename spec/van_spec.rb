@@ -12,4 +12,13 @@ describe Van do
     expect{6.times{subject.load_bikes(Bike.new)}}.to raise_error("The van is full")
   end
 
+  it 'can unload bikes' do
+    expect(subject).to respond_to(:unload_bikes)
+  end
+
+  it "sends broken bikes to the garage" do
+    expect(bike.working?).to be true
+    expect(subject.unload_bikes).to
+  end
+
 end
