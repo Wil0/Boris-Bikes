@@ -1,0 +1,27 @@
+          STORY 1:                         STORY 2:
+NOUNS                VERBS     |      NOUNS        VERBS
+-----                -----     |      -----        -----
+Person               Use       |      Person       Check
+Bike                 Release   |      Bike         Use
+Docking Station                |
+_____________________________________________________________________
+
+STORY 1
+
+OBJECTS              MESSAGES
+------               ------
+Person
+Docking Station     release_a_bike
+
+STORY 2
+
+OBJECTS              MESSAGES
+------               ------
+Person
+Bike                 working?
+_____________________________________________________________________
+CHART
+
+person > docking station > release_a_bike > bike > working?
+
+_____________________________________________________________________
